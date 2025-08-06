@@ -3,4 +3,8 @@ execution_config:
   file:
     path: /app/supergraph.json
     watch: true
+traffic_shaping:
+  all:
+    request_timeout: 5s
+    dial_timeout: 5s
 log_level: info
