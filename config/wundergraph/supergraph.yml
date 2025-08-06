@@ -1,10 +1,10 @@
 version: 1
 subgraphs:
-  - name: identity
-    routing_url: http://identity-server:4110/graphql
+  - name: contact
+    routing_url: http://contact-server:4110/graphql
     schema:
-      file: ../../src/identity-service/schema/identity.graphqls
-  - name: orders
-    routing_url: http://order-server:4111/graphql
+      file: ../../src/contact-service/schema/contact.graphqls
+  - name: search
+    routing_url: http://search-server:4111/graphql
     schema:
-      file: ../../src/order-service/schema/order.graphqls
+      file: ../../src/search-service/schema/search.graphqls

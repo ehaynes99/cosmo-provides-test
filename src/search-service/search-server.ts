@@ -1,18 +1,18 @@
 import path from 'node:path'
 
 import { startServer } from '../common/server.js'
-import { RESOLVERS } from './identity-resolver.js'
+import { RESOLVERS } from './search-resolver.js'
 
 const schemaPath = path.join(import.meta.dirname, 'schema')
 
 try {
   const server = await startServer({
-    port: 4110,
+    port: 4111,
     schemaPath,
     resolvers: RESOLVERS,
   })
 
-  console.log(`Identity server running on ${server.address}`)
+  console.log(`Search server running on ${server.address}`)
 } catch (error) {
-  console.error('Failed to start identity server', error)
+  console.error('Failed to start search server', error)
 }

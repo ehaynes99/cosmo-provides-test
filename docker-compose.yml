@@ -15,29 +15,29 @@ services:
     networks:
       - federation-test
 
-  identity-server:
+  contact-server:
     image: node:20-alpine
-    container_name: identity-server
+    container_name: contact-server
     working_dir: /app
     ports:
       - '4110:4110'
     volumes:
       - .:/app
-    command: npx tsx src/identity-service/identity-server.ts
+    command: npx tsx src/contact-service/contact-server.ts
     networks:
       - federation-test
     depends_on:
       - wundergraph-router
 
-  order-server:
+  search-server:
     image: node:20-alpine
-    container_name: order-server
+    container_name: search-server
     working_dir: /app
     ports:
       - '4111:4111'
     volumes:
       - .:/app
-    command: npx tsx src/order-service/order-server.ts
+    command: npx tsx src/search-service/search-server.ts
     networks:
       - federation-test
     depends_on:

@@ -1,7 +1,7 @@
 import path from 'node:path'
 
 import { startServer } from '../common/server.js'
-import { RESOLVERS } from './identity-resolver.js'
+import { RESOLVERS } from './contact-resolver.js'
 
 const schemaPath = path.join(import.meta.dirname, 'schema')
 
@@ -12,7 +12,7 @@ try {
     resolvers: RESOLVERS,
   })
 
-  console.log(`Identity server running on ${server.address}`)
+  console.log(`Contact server running on ${server.address}`)
 } catch (error) {
-  console.error('Failed to start identity server', error)
+  console.error('Failed to start contact server', error)
 }
