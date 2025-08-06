@@ -1,4 +1,4 @@
-extend schema @link(url: "https://specs.apollo.dev/federation/v2.5", import: ["@key"])
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.5", import: ["@external", "@key", "@provides", "@shareable"])
 
 type Contact @key(fields: "id") {
   id: ID!
