@@ -3,6 +3,7 @@ extend schema @link(url: "https://specs.apollo.dev/federation/v2.5", import: ["@
 type Contact @key(fields: "id") {
   id: ID!
   displayName: String @external
+  initials: String @external
 }
 
 type PageInfo @shareable {
@@ -13,7 +14,7 @@ type PageInfo @shareable {
 }
 
 type ContactConnection {
-  nodes: [Contact!]! @provides(fields: "displayName")
+  nodes: [Contact!]! @provides(fields: "displayName initials")
   edges: [ContactEdge!]!
   pageInfo: PageInfo!
   totalCount: Int!
@@ -22,7 +23,7 @@ type ContactConnection {
 
 type ContactEdge {
   cursor: String!
-  node: Contact! @provides(fields: "displayName")
+  node: Contact! @provides(fields: "displayName initials")
 }
 
 type Query {
@@ -31,5 +32,5 @@ type Query {
     before: String
     first: Int
     after: String
-  ): ContactConnection! @provides(fields: "edges { node { displayName } }")
+  ): ContactConnection! @provides(fields: "edges { node { displayName initials } }")
 }

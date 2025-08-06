@@ -3,12 +3,13 @@ import { CUSTOMERS } from '../common/mock-db.js'
 type ContactNode = {
   id: string
   displayName: string
+  initials: string
 }
 
 const loadContacts = (): ContactNode[] => {
   return Object.values(CUSTOMERS)
     .slice(0, 2)
-    .map(({ id, displayName }) => ({ id, displayName }))
+    .map(({ id, displayName, initials }) => ({ id, displayName, initials }))
 }
 
 export const RESOLVERS = {
